@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: ${{ runner.os }}-env-${{ steps.cache-requirements.outputs.cache-hit }}
+          key: ${{ runner.os }}-env-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-env-
 
