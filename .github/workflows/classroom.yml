@@ -1,5 +1,5 @@
 name: Autograding Tests
-'on': [push]
+'on': []
 
 jobs:
   autograding:
