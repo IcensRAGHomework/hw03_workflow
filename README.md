@@ -5,7 +5,8 @@
 請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-03(question)`。
 
 ---
-# 作業1：初始化資料庫並添加 Metadata
+
+### 作業1：初始化資料庫並添加 Metadata
 
 ### 目的
 需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
