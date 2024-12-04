@@ -8,33 +8,24 @@
 
 ### 作業1：初始化資料庫並添加 Metadata
 
-### 目的
-需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
-
-### 步驟說明
-
-### 1. 使用指定的 CSV 檔案
-請使用指定的 CSV 檔案，檔案名稱為 `COA_OpenData.csv`。該檔案已包含所有需要的欄位資料。
-
-### 2. Metadata 的內容
-在初始化資料庫時，需從 CSV 檔案中提取每條記錄的相關欄位，並將其作為 Metadata 存入 ChromaDB。Metadata 包含以下資訊：
-- **file_name**：資料來源檔案名稱（固定為 `COA_OpenData.csv`）。
-- **name**：店家名稱。
-- **type**：店家類型，例如 "美食"、"旅遊"。
-- **address**：店家地址。
-- **tel**：店家聯絡電話。
-- **city**：店家所在城市。
-- **town**：店家所在城鎮。
-- **date**：資料創建日期，需從 `CreateDate` 欄位轉換為時間戳格式（秒）。
-
-### 3. 文件數據（`documents`）
-將 CSV 檔案中的 `HostWords` 欄位內容提取作為文本數據存入 ChromaDB。這些數據是查詢時進行相似度計算的核心。
-
-### 4. 方法
-實作 `generate_hw01()` 方法，回傳一個collection物件。
-
-### 5. 輸出格式
-回傳一個 collection物件`chromadb.api.models.Collection.Collection` 
+1. **目的**：需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
+2. **步驟說明**
+   - 1. 使用指定的 CSV 檔案
+      請使用指定的 CSV 檔案，檔案名稱為 `COA_OpenData.csv`。該檔案已包含所有需要的欄位資料。
+   - 2. Metadata 的內容
+      在初始化資料庫時，需從 CSV 檔案中提取每條記錄的相關欄位，並將其作為 Metadata 存入 ChromaDB。Metadata 包含以下資訊：
+      - **file_name**：資料來源檔案名稱（固定為 `COA_OpenData.csv`）。
+      - **name**：店家名稱。
+      - **type**：店家類型，例如 "美食"、"旅遊"。
+      - **address**：店家地址。
+      - **tel**：店家聯絡電話。
+      - **city**：店家所在城市。
+      - **town**：店家所在城鎮。
+      - **date**：資料創建日期，需從 `CreateDate` 欄位轉換為時間戳格式（秒）。
+   - 3. 文件數據（`documents`）
+     將 CSV 檔案中的 `HostWords` 欄位內容提取作為文本數據存入 ChromaDB。這些數據是查詢時進行相似度計算的核心。
+3. **方法**：實作 `generate_hw01()` 方法，回傳一個collection物件。
+4. **輸出格式**：回傳一個 collection物件`chromadb.api.models.Collection.Collection` 
 
 ---
 
