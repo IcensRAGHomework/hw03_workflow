@@ -63,7 +63,7 @@
    - 實作 `generate_hw02(question, store_name, new_store_name, city, store_type)` 方法，完成如下功能：
    - 找到指定的店家並新增新的參數，名稱為'store_name'
    - 透過問題取得的店家名稱，如果該店家的Metadata有'store_name'參數，請用該參數來顯示新的店家名稱
-   - n_results設定為3。
+   - n_results設定為10。
 4. **參數**:
    - `question` (str)：用戶的查詢問題，例如 `"我想要找南投縣的田媽媽餐廳，招牌是蕎麥麵"`。
    - `store_name` (str)：需要搜尋的店家名稱， 例如 `"耄饕客棧"`。
