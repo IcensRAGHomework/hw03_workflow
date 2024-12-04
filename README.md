@@ -5,12 +5,12 @@
 請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-03(question)`。
 
 ---
-# 前置作業：初始化資料庫並添加 Metadata
+# 作業1：初始化資料庫並添加 Metadata
 
-## 目的
-在完成作業 1 的查詢功能之前，需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
+### 目的
+需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
 
-## 步驟說明
+### 步驟說明
 
 ### 1. 使用指定的 CSV 檔案
 請使用指定的 CSV 檔案，檔案名稱為 `COA_OpenData.csv`。該檔案已包含所有需要的欄位資料。
@@ -24,18 +24,24 @@
 - **tel**：店家聯絡電話。
 - **city**：店家所在城市。
 - **town**：店家所在城鎮。
-- **date**：資料創建日期，需從 `CreateDate` 欄位轉換為 UNIX 時間戳格式（秒）。
+- **date**：資料創建日期，需從 `CreateDate` 欄位轉換為時間戳格式（秒）。
 
 ### 3. 文件數據（`documents`）
 將 CSV 檔案中的 `HostWords` 欄位內容提取作為文本數據存入 ChromaDB。這些數據是查詢時進行相似度計算的核心。
 
+### 4. 方法
+實作 `generate_hw01()` 方法，回傳一個collection物件。
+
+### 5. 輸出格式
+回傳一個 collection物件`chromadb.api.models.Collection.Collection` 
+
 ---
 
-### 作業1
+### 作業2
 
 1. **問題**：`根據文件內容查詢特定類型的店家，並過濾出相似度分數在 **0.80** 分以上的結果(請用list格式呈現，順序依照相似度分數遞減排序)`
 2. **範例**：`我想要找有關茶餐點的店家`
-3. **方法**：實作 `generate_hw01(question, city, store_type, start_date, end_date)` 方法，完成如下功能：
+3. **方法**：實作 `generate_hw02(question, city, store_type, start_date, end_date)` 方法，完成如下功能：
    - 接受用戶輸入的問題及篩選條件，從資料庫中查詢符合條件的店家。
    - 驗證答案時，輸入的篩選參數不一定都會使用。
    - 僅返回符合相似度分數大於或等於 **0.80** 的店家名稱。
@@ -55,12 +61,12 @@
 
 ---
 
-### 作業2
+### 作業3
 
 1. **問題**：`修改特定店家的資訊並重新查詢，列出的店家名稱要根據新的參數來決定顯示的名稱，並過濾出相似度分數在 **0.80** 分以上的結果(請用list格式呈現，順序依照相似度分數遞減排序)`
 2. **範例**：`我想要找南投縣的田媽媽餐廳，招牌是蕎麥麵`
 3. **方法**：
-   - 實作 `generate_hw02(question, store_name, new_store_name, city, store_type)` 方法，完成如下功能：  
+   - 實作 `generate_hw03(question, store_name, new_store_name, city, store_type)` 方法，完成如下功能：  
      1. 找到指定的店家，並新增或修改新的參數，名稱為 `store_name`。  
      2. 透過問題取得的店家名稱，如果該店家的 Metadata 有 `store_name` 參數，請用該參數來顯示新的店家名稱。  
      3. 設定查詢結果數量為 `10`（`n_results=10`）。
@@ -78,31 +84,10 @@
 
 ---
 
-### 作業3
-
-1. **問題**：`根據先前的節日清單，這個節日是否有在該月份清單？{"date": "10-31", "name": "蔣公誕辰紀念日"}'`(範例)
-2. **方法**：
-   - 使用 ConversationBufferMemory 的方式記憶前一次的回答。
-   - 實作 `generate_hw03(question1, question2)`，用於回答上述問題。 PS.question1是作業2的問題
-3. **輸出格式**：
-   - JSON 格式如下：
-     ```json
-     {
-         "Result": 
-             {
-                 "add": true,
-                 "reason": "蔣中正誕辰紀念日並未包含在十月的節日清單中。目前十月的現有節日包括國慶日、重陽節、華僑節、台灣光復節和萬聖節。因此，如果該日被認定為節日，應該將其新增至清單中。"
-             }
-     }
-     ```
-
----
-
-
 ### 注意事項
 - 必須使用 **Chromadb** 套件完成方法實作。
 - 確保輸出的格式與範例一致。
 
 ### 參考來源
-- [參考1](https://api.python.langchain.com/en/latest/agents/langchain.agents.agent.AgentExecutor.html)
+- [Chromadb](https://docs.trychroma.com/guides)
 
