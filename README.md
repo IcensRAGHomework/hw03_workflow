@@ -2,7 +2,7 @@
 
 ## 作業內容
 
-請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-03(question)`。
+請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-03(question)`
 
 ---
 
@@ -14,7 +14,7 @@
       請使用指定的 CSV 檔案，檔案名稱為 `COA_OpenData.csv`。該檔案已包含所有需要的欄位資料。
    - 2. Metadata 的內容
       在初始化資料庫時，需從 CSV 檔案中提取每條記錄的相關欄位，並將其作為 Metadata 存入 ChromaDB。Metadata 包含以下資訊：
-      - **file_name**：資料來源檔案名稱（固定為 `COA_OpenData.csv`）。
+      - **file_name**：資料來源檔案名稱（`COA_OpenData.csv`）。
       - **name**：店家名稱。
       - **type**：店家類型，例如 "美食"、"旅遊"。
       - **address**：店家地址。
