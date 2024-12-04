@@ -2,13 +2,13 @@
 
 ## 作業內容
 
-請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-04(question)`。
+請使用 **chromadb** 套件完成以下作業，將 `COA_OpenData.csv` 檔案寫入 chroma.sqlite3(需要上傳該檔案)，並在 **`student_assignment.py`** 中實作以下方法：`generate_hw01-03(question)`。
 
 ---
 # 前置作業：初始化資料庫並添加 Metadata
 
 ## 目的
-在完成作業 1 的查詢功能之前，我們需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
+在完成作業 1 的查詢功能之前，需要先將數據存入資料庫（ChromaDB）。這些數據包括店家的描述文字、基本資訊（如名稱、類型、地址等）以及對應的額外資料（Metadata），這些內容將作為查詢和過濾的基礎。
 
 ## 步驟說明
 
@@ -57,13 +57,13 @@
 
 ### 作業2
 
-1. **問題**：`修改特定店家的資訊並重新查詢，列出的店家名稱要根據新的參數來決定顯示的名稱，並過濾出相似度分數在 **0.80** 分以上的結果(請用list格式呈現，順序依照相似度分數遞減排序)
-2. **範例**：`我想要找南投縣的田媽媽餐廳，有哪些店家呢?`
+1. **問題**：`修改特定店家的資訊並重新查詢，列出的店家名稱要根據新的參數來決定顯示的名稱，並過濾出相似度分數在 **0.80** 分以上的結果(請用list格式呈現，順序依照相似度分數遞減排序)`
+2. **範例**：`我想要找南投縣的田媽媽餐廳，招牌是蕎麥麵`
 3. **方法**：
-   - 實作 `generate_hw02(question, store_name, new_store_name, city, store_type)` 方法，完成如下功能：
-   - 找到指定的店家並新增新的參數，名稱為'store_name'
-   - 透過問題取得的店家名稱，如果該店家的Metadata有'store_name'參數，請用該參數來顯示新的店家名稱
-   - n_results設定為10。
+   - 實作 `generate_hw02(question, store_name, new_store_name, city, store_type)` 方法，完成如下功能：  
+     1. 找到指定的店家，並新增或修改新的參數，名稱為 `store_name`。  
+     2. 透過問題取得的店家名稱，如果該店家的 Metadata 有 `store_name` 參數，請用該參數來顯示新的店家名稱。  
+     3. 設定查詢結果數量為 `10`（`n_results=10`）。
 4. **參數**:
    - `question` (str)：用戶的查詢問題，例如 `"我想要找南投縣的田媽媽餐廳，招牌是蕎麥麵"`。
    - `store_name` (str)：需要搜尋的店家名稱， 例如 `"耄饕客棧"`。
@@ -100,12 +100,9 @@
 
 
 ### 注意事項
-- 必須使用 **LangChain** 套件完成方法實作。
+- 必須使用 **Chromadb** 套件完成方法實作。
 - 確保輸出的格式與範例一致。
 
 ### 參考來源
 - [參考1](https://api.python.langchain.com/en/latest/agents/langchain.agents.agent.AgentExecutor.html)
-- [參考2](https://learn.microsoft.com/zh-tw/azure/ai-services/openai/how-to/gpt-with-vision?tabs=rest)
-- [參考3](https://python.langchain.com/v0.1/docs/modules/memory/types/buffer/)
-- [參考4](https://python.langchain.com/v0.1/docs/modules/agents/agent_types/openai_functions_agent/)
 
