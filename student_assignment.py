@@ -6,7 +6,7 @@ from chromadb.utils import embedding_functions
 
 from model_configurations import get_model_configuration
 
-gpt_chat_version = 'gpt-3.5-embeddings'
+gpt_chat_version = 'text-embedding-ada-002'
 gpt_emb_config = get_model_configuration(gpt_chat_version)
 
 dbpath = "./"
