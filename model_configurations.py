@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 configurations = {
-    "gpt-3.5-embeddings": {
+    "text-embedding-ada-002": {
         "api_base": os.getenv('AZURE_OPENAI_EMBEDDING_ENDPOINT'),
         "api_key": os.getenv('AZURE_OPENAI_EMBEDDING_KEY'),
         "deployment_name": os.getenv('AZURE_OPENAI_DEPLOYMENT_EMBEDDING'),
